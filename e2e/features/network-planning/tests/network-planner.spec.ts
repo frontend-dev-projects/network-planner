@@ -45,6 +45,47 @@ function getCommonTests() {
   });
 }
 
+test("diagnostic: planner initialization", async ({ page }) => {
+  page.on("pageerror", (error) => {
+    console.error("[PAGE ERROR]", error.message);
+  });
+
+  page.on("console", (message) => {
+    if (message.type() === "error") {
+      console.error("[CONSOLE ERROR]", message.text());
+    }
+  });
+
+  await page.goto("/network-planner");
+
+  console.log("URL:", page.url());
+
+  console.log(
+    "WebGL available:",
+    await page.evaluate(() => {
+      const canvas = document.createElement("canvas");
+      return !!(canvas.getContext("webgl2") || canvas.getContext("webgl"));
+    }),
+  );
+
+  console.log("Dialogs:", await page.locator("dialog").count());
+
+  console.log(
+    "Dialog open:",
+    await page
+      .locator("dialog")
+      .first()
+      .evaluate((el: HTMLDialogElement) => el.open)
+      .catch(() => null),
+  );
+
+  await expect(
+    page.getByRole("heading", {
+      name: /Design and explore communication networks/i,
+    }),
+  ).toBeVisible();
+});
+
 // First visit - dismiss tutorial
 test.describe("First visit — dismiss tutorial", () => {
   test.beforeEach(async ({ page }) => {
