@@ -12,6 +12,7 @@ import {
   MIN_EDGES,
   MIN_NODES,
 } from "./benchmark-configuration.constants";
+import { NgxMaskDirective, provideNgxMask } from "ngx-mask";
 
 export interface ConfigurationOptions {
   algorithm: ColoringAlgorithm;
@@ -26,7 +27,8 @@ const DEFAULT_CONFIGURATION: ConfigurationOptions = {
 };
 
 @Component({
-  imports: [FormField, FormRoot, FieldErrorsComponent],
+  imports: [FormField, FormRoot, FieldErrorsComponent, NgxMaskDirective],
+  providers: [provideNgxMask()],
   selector: "app-benchmark-configuration",
   styleUrls: [
     "./benchmark-configuration.component.scss",

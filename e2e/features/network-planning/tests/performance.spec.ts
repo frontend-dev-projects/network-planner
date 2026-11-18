@@ -114,22 +114,6 @@ test.describe("Returning user — cached tutorial", () => {
       MIN_NODES,
       getMaximumNumberOfEdges(MIN_NODES),
     );
-
-    // testing with non-integer values
-    await performancePage.expectDisabledRunButton(MIN_NODES + 45.32, MIN_EDGES);
-    await performancePage.expectEnabledRunButton(
-      MIN_NODES,
-      Math.min(MAX_EDGES, getMaximumNumberOfEdges(MIN_NODES)),
-    );
-
-    await performancePage.expectDisabledRunButton(
-      MIN_NODES,
-      MIN_EDGES + 145.24,
-    );
-    await performancePage.expectEnabledRunButton(
-      MAX_NODES,
-      Math.min(MAX_EDGES, getMaximumNumberOfEdges(MAX_NODES)),
-    );
   });
 
   getCommonTests();

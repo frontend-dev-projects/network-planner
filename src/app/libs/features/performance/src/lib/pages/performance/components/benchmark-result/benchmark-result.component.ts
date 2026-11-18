@@ -1,3 +1,4 @@
+import { DecimalPipe } from "@angular/common";
 import { Component, input } from "@angular/core";
 
 export interface PerformanceMetrics {
@@ -13,7 +14,7 @@ export interface GraphInformations {
 }
 
 @Component({
-  imports: [],
+  imports: [DecimalPipe],
   selector: "app-benchmark-result",
   styleUrls: [
     "./benchmark-result.component.scss",

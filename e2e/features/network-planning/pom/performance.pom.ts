@@ -38,7 +38,7 @@ export class PerformancePOM extends TutorialPOM {
   readonly graphEdges = this.page.getByTestId("number-edges");
   readonly graphAverageDegree = this.page.getByTestId("average-degree");
 
-  async fillBenchmarkParameters(
+  private async fillBenchmarkParameters(
     transmitters: number,
     approximateSize: number,
     algorithm: string,
@@ -48,34 +48,41 @@ export class PerformancePOM extends TutorialPOM {
     await this.algorithmInput.selectOption(algorithm);
   }
 
-  async checkBenchMarkParameters(
+  private async checkBenchMarkParameters(
     transmitters: number,
     approximateSize: number,
     algorithm: string,
   ) {
-    await expect(this.transmittersInput).toHaveValue(transmitters.toString());
+    await expect(this.transmittersInput).toHaveValue(
+      transmitters.toLocaleString("en-US"),
+    );
     await expect(this.numberOfEdgesInput).toHaveValue(
-      approximateSize.toString(),
+      approximateSize.toLocaleString("en-US"),
     );
     await expect(this.algorithmInput).toHaveValue(algorithm);
   }
 
-  async expectBenchmarkResult() {
+  private async expectBenchmarkResult() {
     await expect(this.graphTransmitters).not.toHaveText("0");
     await expect(this.graphEdges).not.toHaveText("0.00");
 
     await expect
       .poll(async () => {
-        const edgesDisplayed = Number(await this.graphEdges.innerText());
-        const averageDisplayed = (
-          await this.graphAverageDegree.innerText()
-        ).trim();
+        const nodesDisplayed = Number(
+          (await this.graphTransmitters.innerText()).replaceAll(",", ""),
+        );
+        const edgesDisplayed = Number(
+          (await this.graphEdges.innerText()).replaceAll(",", ""),
+        );
+        const averageDisplayed = Number(
+          (await this.graphAverageDegree.innerText()).replaceAll(",", ""),
+        );
 
-        const expectedAverageDegree =
-          (2 * edgesDisplayed) /
-          Number(await this.graphTransmitters.innerText());
+        const expectedAverageDegree = Math.round(
+          (2 * edgesDisplayed) / nodesDisplayed,
+        );
 
-        return averageDisplayed === expectedAverageDegree.toFixed(2);
+        return averageDisplayed === expectedAverageDegree;
       })
       .toBe(true);
   }

@@ -21,7 +21,9 @@
 
       <input
         id="transmitters"
-        type="number"
+        inputmode="numeric"
+        mask="separator.0"
+        thousandSeparator=","
         step="1"
         [formField]="configurationForm.transmitters"
       />
@@ -33,7 +35,9 @@
       <div class="input-with-unit">
         <input
           id="approximate-size"
-          type="number"
+          inputmode="numeric"
+          mask="separator.0"
+          thousandSeparator=","
           step="1"
           [formField]="configurationForm.approximateSize"
         />
