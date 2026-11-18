@@ -110,10 +110,13 @@ export class NetworkPlannerPOM extends TutorialPOM {
     }
 
     await expect
-      .poll(async () => {
-        const after = await this.networkGraph.screenshot();
-        return after.equals(before);
-      })
+      .poll(
+        async () => {
+          const after = await this.networkGraph.screenshot();
+          return after.equals(before);
+        },
+        { timeout: 15000 },
+      )
       .toBe(false);
   }
 

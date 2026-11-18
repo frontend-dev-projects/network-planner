@@ -3,6 +3,7 @@ import {
   Component,
   DestroyRef,
   inject,
+  PLATFORM_ID,
   signal,
   viewChild,
 } from "@angular/core";
@@ -49,6 +50,7 @@ import {
   TUTORIAL_STEPS,
 } from "./network-planner.constants";
 import { TutorialService } from "../../services/tutorial/tutorial.service";
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   imports: [
@@ -75,6 +77,7 @@ export class NetworkPlannerPage {
   private readonly guidedTour = inject(GuidedTourService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly tutorialService = inject(TutorialService);
+  private readonly platformId = inject(PLATFORM_ID);
 
   readonly tutorialPrompt = viewChild.required(TutorialPromptComponent);
 
@@ -94,7 +97,11 @@ export class NetworkPlannerPage {
   constructor() {
     this.destroyRef.onDestroy(() => this.guidedTour.destroy());
     afterNextRender(() => {
-      if (!this.tutorialService.hasSeenTutorial()) this.tutorialPrompt().open();
+      if (
+        isPlatformBrowser(this.platformId) &&
+        !this.tutorialService.hasSeenTutorial()
+      )
+        this.tutorialPrompt().open();
     });
   }
 
