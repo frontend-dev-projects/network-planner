@@ -20,15 +20,11 @@
     aria-label="Main navigation"
     [class.is-open]="menuOpen()"
   >
-    <a routerLink="/" (click)="closeMenu()">Home</a>
+    <a routerLink="/marketing" (click)="closeMenu()">Home</a>
 
-    <a routerLink="/network-planning/network-planner" (click)="closeMenu()">
-      Planner
-    </a>
+    <a routerLink="/network-planner" (click)="closeMenu()"> Planner </a>
 
-    <a routerLink="/network-planning/performance" (click)="closeMenu()"
-      >Performance</a
-    >
+    <a routerLink="/performance" (click)="closeMenu()">Performance</a>
 
     <a
       routerLink="/marketing/how-it-works"

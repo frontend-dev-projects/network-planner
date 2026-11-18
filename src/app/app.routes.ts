@@ -4,43 +4,63 @@ import { AppLayoutComponent } from "@signal/ui";
 export const routes: Routes = [
   {
     path: "",
-    redirectTo: "/network-planning",
+    redirectTo: "/marketing",
     pathMatch: "full",
   },
   {
     path: "marketing",
-    component: AppLayoutComponent,
-    data: { theme: "light" },
     children: [
       {
-        path: "how-it-works",
-        loadComponent: () =>
-          import("@signal/marketing").then((m) => m.HowItWorksPage),
+        path: "",
+        pathMatch: "full",
+        component: AppLayoutComponent,
+        data: { theme: "dark" },
+        children: [
+          {
+            path: "",
+            loadComponent: () =>
+              import("@signal/marketing").then((m) => m.HomePage),
+          },
+        ],
       },
       {
-        path: "engineering",
-        loadComponent: () =>
-          import("@signal/marketing").then((m) => m.EngineeringPage),
+        path: "",
+        component: AppLayoutComponent,
+        data: { theme: "light" },
+        children: [
+          {
+            path: "how-it-works",
+            loadComponent: () =>
+              import("@signal/marketing").then((m) => m.HowItWorksPage),
+          },
+          {
+            path: "engineering",
+            loadComponent: () =>
+              import("@signal/marketing").then((m) => m.EngineeringPage),
+          },
+        ],
       },
     ],
   },
   {
-    path: "network-planning",
+    path: "network-planner",
     component: AppLayoutComponent,
     data: { theme: "dark" },
     children: [
       {
         path: "",
         loadComponent: () =>
-          import("@signal/marketing").then((m) => m.HomePage),
-      },
-      {
-        path: "network-planner",
-        loadComponent: () =>
           import("@signal/planner").then((m) => m.NetworkPlannerPage),
       },
+    ],
+  },
+  {
+    path: "performance",
+    component: AppLayoutComponent,
+    data: { theme: "dark" },
+    children: [
       {
-        path: "performance",
+        path: "",
         loadComponent: () =>
           import("@signal/performance").then((m) => m.PerformancePage),
       },

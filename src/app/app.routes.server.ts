@@ -6,15 +6,15 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender,
   },
   {
-    path: "network-planning",
-    renderMode: RenderMode.Prerender,
-  },
-  {
-    path: "network-planning/network-planner",
+    path: "network-planner",
     renderMode: RenderMode.Client,
   },
   {
-    path: "network-planning/performance",
+    path: "performance",
+    renderMode: RenderMode.Prerender,
+  },
+  {
+    path: "marketing",
     renderMode: RenderMode.Prerender,
   },
   {

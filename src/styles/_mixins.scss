@@ -26,14 +26,14 @@
 
 @mixin page-container-header {
   width: 100%;
-  max-width: var(--content-max-width);
 
   margin: 0 auto;
   padding: 24px 32px;
 }
 
-@mixin page-container-content {
-  @include page-container-header;
-
-  padding: 80px 32px 100px;
+@mixin page-padding-content {
+  min-height: 100%;
+  color: var(--color-text);
+  padding: 4rem 1.5rem 6rem;
+  padding-inline: 2rem;
 }

@@ -1,7 +1,7 @@
 import { BasePOM } from "../../../shared/pom/base.pom";
 
 export class HomePOM extends BasePOM {
-  protected readonly path = "/";
+  protected readonly path = "/marketing";
 
   readonly randomGraphSection = this.page.getByTestId("home-random-graph");
 

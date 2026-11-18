@@ -10,5 +10,5 @@ import { FooterComponent } from "../footer/footer.component";
   styleUrl: "./app-layout.component.scss",
 })
 export class AppLayoutComponent {
-  theme = input<"light" | "dark">("dark");
+  readonly theme = input<"light" | "dark">("dark");
 }

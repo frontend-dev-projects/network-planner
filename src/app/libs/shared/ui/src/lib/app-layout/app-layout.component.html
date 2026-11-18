@@ -1,13 +1,15 @@
-<div
-  class="app-layout"
+<article
+  class="full-content"
   [class.theme-light]="theme() === 'light'"
   [class.theme-dark]="theme() === 'dark'"
 >
-  <app-header />
+  <div class="app-layout">
+    <app-header />
 
-  <main>
-    <router-outlet />
-  </main>
+    <main>
+      <router-outlet />
+    </main>
 
-  <app-footer />
-</div>
+    <app-footer />
+  </div>
+</article>

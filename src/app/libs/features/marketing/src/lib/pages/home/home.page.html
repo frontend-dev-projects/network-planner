@@ -1,79 +1,81 @@
 <div class="landing-page">
   <!-- Hero -->
-  <article class="page-section hero">
-    <section class="content">
-      <span class="eyebrow">GRAPH THEORY × NETWORK PLANNING</span>
+  <div class="div-content">
+    <article class="page-section hero">
+      <section class="content">
+        <span class="eyebrow">GRAPH THEORY × NETWORK PLANNING</span>
 
-      <h1>
-        Explore networks through
-        <span>graph algorithms.</span>
-      </h1>
+        <h1>
+          Explore networks through
+          <span>graph algorithms.</span>
+        </h1>
 
-      <p class="description">
-        Build communication networks, visualize their structure and experiment
-        with graph algorithms in an interactive environment.
-      </p>
+        <p class="description">
+          Build communication networks, visualize their structure and experiment
+          with graph algorithms in an interactive environment.
+        </p>
 
-      <div class="actions">
-        <button
-          class="button button--primary button--compact"
-          routerLink="/network-planning/network-planner"
+        <div class="actions">
+          <button
+            class="button button--primary button--compact"
+            routerLink="/network-planner"
+          >
+            Open Network Planner
+          </button>
+
+          <button
+            class="button button--secondary button--compact"
+            routerLink="/marketing/how-it-works"
+          >
+            Learn more
+          </button>
+        </div>
+      </section>
+
+      <section class="graph" data-testid="home-random-graph">
+        @defer (on idle; hydrate on idle) {
+        <app-random-graph />
+        } @placeholder {
+        <div class="graph-placeholder"></div>
+        }
+      </section>
+    </article>
+
+    <!-- Features -->
+    <article id="features" class="features">
+      <section class="heading">
+        <span class="eyebrow">THE PROJECT</span>
+
+        <h2>Experiment with networks visually</h2>
+
+        <p>
+          Create network instances and investigate how graph algorithms behave
+          on them.
+        </p>
+      </section>
+
+      <section class="feature-grid">
+        <app-feature-card
+          icon="◎"
+          title="Build Networks"
+          description="Add towers to a two-dimensional space and generate connections according to their communication distance."
         >
-          Open Network Planner
-        </button>
+        </app-feature-card>
 
-        <button
-          class="button button--secondary button--compact"
-          routerLink="/marketing/how-it-works"
+        <app-feature-card
+          icon="⌘"
+          title="Run Algorithms"
+          description="Apply graph algorithms to analyze and optimize the generated network."
         >
-          Learn more
-        </button>
-      </div>
-    </section>
+        </app-feature-card>
 
-    <section class="graph" data-testid="home-random-graph">
-      @defer (on idle; hydrate on idle) {
-      <app-random-graph />
-      } @placeholder {
-      <div class="graph-placeholder"></div>
-      }
-    </section>
-  </article>
-
-  <!-- Features -->
-  <article id="features" class="features">
-    <section class="heading">
-      <span class="eyebrow">THE PROJECT</span>
-
-      <h2>Experiment with networks visually</h2>
-
-      <p>
-        Create network instances and investigate how graph algorithms behave on
-        them.
-      </p>
-    </section>
-
-    <section class="feature-grid">
-      <app-feature-card
-        icon="◎"
-        title="Build Networks"
-        description="Add towers to a two-dimensional space and generate connections according to their communication distance."
-      >
-      </app-feature-card>
-
-      <app-feature-card
-        icon="⌘"
-        title="Run Algorithms"
-        description="Apply graph algorithms to analyze and optimize the generated network."
-      >
-      </app-feature-card>
-
-      <app-feature-card
-        icon="△"
-        title="Visualize Results"
-        description="Explore large graph structures using an interactive Canvas or WebGL visualization."
-      >
-      </app-feature-card>
-    </section>
-  </article>
+        <app-feature-card
+          icon="△"
+          title="Visualize Results"
+          description="Explore large graph structures using an interactive Canvas or WebGL visualization."
+        >
+        </app-feature-card>
+      </section>
+    </article>
+  </div>
 </div>

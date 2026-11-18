@@ -3,13 +3,8 @@
 .performance-page {
   min-height: 100vh;
 
-  @include mixins.background-page;
-
   &__content {
-    @include mixins.page-container-content;
-
-    padding-top: 4rem;
-    padding-bottom: 6rem;
+    @include mixins.page-padding-content;
   }
 }
 

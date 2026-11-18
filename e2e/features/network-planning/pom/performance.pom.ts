@@ -11,7 +11,7 @@ const scanDsaturAlgorithm: ColoringAlgorithm = "DSATUR-NAIVE";
 const heapDsaturAlgorithm: ColoringAlgorithm = "DSATUR-HEAP";
 
 export class PerformancePOM extends TutorialPOM {
-  protected readonly path = "/network-planning/performance";
+  protected readonly path = "performance";
   protected readonly numberOfSteps = TUTORIAL_STEPS.length;
 
   // Inputs

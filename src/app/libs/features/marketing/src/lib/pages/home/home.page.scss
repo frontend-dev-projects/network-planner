@@ -2,8 +2,10 @@
 
 .landing-page {
   min-height: 100vh;
+}
 
-  @include mixins.background-page;
+.div-content {
+  @include mixins.page-padding-content;
 }
 
 /* -------------------------
@@ -11,10 +13,9 @@
 -------------------------- */
 
 .hero {
-  @include mixins.page-container-content;
-
   display: flex;
   align-items: center;
+  padding-top: 3rem;
   gap: 80px;
 
   h1 {
@@ -38,9 +39,9 @@
   }
 
   .graph {
-    flex: 0 1 500px;
+    flex: 0 1 530px;
     min-width: 0;
-    max-width: 500px;
+    max-width: 530px;
     aspect-ratio: 1;
 
     position: relative;
@@ -143,11 +144,9 @@
 -------------------------- */
 
 .features {
-  max-width: var(--content-max-width);
-
   margin: 0 auto;
 
-  padding: 100px 32px;
+  padding-top: 1rem;
 
   .heading {
     max-width: 650px;

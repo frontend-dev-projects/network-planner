@@ -1,11 +1,18 @@
-.app-layout {
-  background:
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(101, 229, 194, 0.09),
-      transparent 30%
-    ),
-    var(--color-background);
+@use "styles/_mixins" as mixins;
 
+.full-content {
+  background: radial-gradient(
+    circle at 80% 20%,
+    rgba(101, 229, 194, 0.09),
+    transparent 30%
+  );
+
+  @include mixins.background-page;
+}
+
+.app-layout {
   color: var(--color-text);
+
+  max-inline-size: 90rem;
+  margin-inline: auto;
 }

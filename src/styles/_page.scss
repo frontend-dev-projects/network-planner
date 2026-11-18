@@ -7,8 +7,6 @@
 
   background: var(--color-background);
   color: var(--color-text);
-
-  @include mixins.page-container-content;
 }
 
 /* -------------------------
@@ -16,7 +14,6 @@
 -------------------------- */
 
 .page-section {
-  max-width: 760px;
   margin-bottom: 2.5rem;
 
   h1 {

@@ -10,7 +10,7 @@ import {
 import { TutorialPOM } from "../../../shared/pom/tutorial.pom";
 
 export class NetworkPlannerPOM extends TutorialPOM {
-  protected readonly path = "/network-planning/network-planner";
+  protected readonly path = "/network-planner";
   protected readonly numberOfSteps = TUTORIAL_STEPS.length;
 
   // Inputs
