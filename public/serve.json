@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/network-planning/network-planner",
+      "source": "/network-planner",
       "destination": "/index.csr.html"
     }
   ]
