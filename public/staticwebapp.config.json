@@ -2,7 +2,7 @@
   "routes": [
     {
       "route": "/",
-      "redirect": "/network-planning",
+      "redirect": "/marketing",
       "statusCode": 302
     }
   ],
