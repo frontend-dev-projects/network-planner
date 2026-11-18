@@ -56,6 +56,16 @@ test("diagnostic: planner initialization", async ({ page }) => {
     }
   });
 
+  page.on("response", (response) => {
+    if (response.status() >= 400) {
+      console.log(
+        `[HTTP ${response.status()}]`,
+        response.request().resourceType(),
+        response.url(),
+      );
+    }
+  });
+
   await page.goto("/network-planner");
 
   console.log("URL:", page.url());

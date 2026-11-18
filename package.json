@@ -17,7 +17,7 @@
     "start:safe": "nx serve --prebundle=false",
     "build": "nx build",
     "prod": "npm run build && npm run preview",
-    "preview": "serve dist/network-planner/browser -l 4000",
+    "preview": "serve -s dist/network-planner/browser -l 4000",
     "lint:all": "nx run-many -t lint",
     "test": "nx test network-planner",
     "e2e": "playwright test --workers=1",
